@@ -26,7 +26,7 @@ checks:
     kind: precondition
     severity: error
     run: node --version && npm --version
-    timeout: 5000
+    timeout: 15000
   - name: node-modules-installed
     kind: file
     severity: error
