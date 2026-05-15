@@ -104,6 +104,10 @@ ota run ship:prepare
 ota run ship:publish
 ```
 
+`workflows.ship.prepare.task` first materializes `.secrets.local.json` from
+`.secrets.local.json.example` when missing, then `ship:prepare` handles
+validation, version sync, and zip packaging before publish.
+
 ### List all Ota commands
 
 ```bash
@@ -114,7 +118,7 @@ ota tasks --use
 
 - `dev` and `build` run in the `app` context (container).
 - `install`, `compile`, `check:*`, and `ship:*` run in `host` context (native).
-- `ci` is available via workflow mode: `ota run --workflow ci`.
+- `ci` is available via `ota up --workflow ci` or direct task execution with `ota run ci:check`.
 
 ## Install
 
